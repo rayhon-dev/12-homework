@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Bosh Sahifa{% endblock %}
+{% block title %}Maxsulotlar Ro`yxati{% endblock %}
 
 {% block content %}
-    {% for product in products %}
         <h1>Mahsulotlar Ro'yxati:</h1>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="{{ product.product_image.url }}" class="card-img-top" alt="Mahsulot 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Mahsulot: {{ product.product_name }}</h5>
-                            <p class="card-text">Mahsulot haqida qisqacha ma'lumot: {{ product.product_description }}</p>
-                            <a href="{{ product.get_detail_url }}" class="btn btn-primary">Batafsil</a>
+                {% for product in products %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ product.product_image.url }}" class="card-img-top" alt="Mahsulot 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Mahsulot: {{ product.product_name }}</h5>
+                                <p class="card-text">Mahsulot haqida qisqacha ma'lumot: {{ product.product_description }}</p>
+                                <a href="{{ product.get_detail_url }}" class="btn btn-primary">Batafsil</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-    {% empty %}
-        <h3>Hozircha mahsulotlar yo`q</h3>
-    {% endfor %}
-        </div>
+                {% empty %}
+                    <h3>Hozircha mahsulotlar yo`q</h3>
+                {% endfor %}
+            </div>
 {% endblock %}
